@@ -27,7 +27,5 @@ namespace StokTakipApp.Api
         {
             return data;
         }
-
-
     }
 }
