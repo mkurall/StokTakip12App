@@ -28,8 +28,9 @@ namespace StokTakipApp
 
             pbMesgul.Visible = false;
 
-            if(cevap.BasariliMi)
+            if (cevap.BasariliMi)
             {
+                HttpUtils.SetToken(cevap.Data.ToString());
                 DialogResult = DialogResult.OK;
             }
             else

@@ -59,5 +59,26 @@ namespace StokTakipApp.Api
             return new ApiCevapData<Kategori>(cevap);
 
         }
+        public static async Task<ApiCevapData<object?>> KategoriSil(int kategoriId)
+        {
+            HttpResponseMessage resp = await HttpUtils.PostAsync("KategoriSil", $"{{'kategoriId':'{kategoriId}'}}");
+            string content = await resp.Content.ReadAsStringAsync();
+
+            ApiCevap cevap = JsonConvert.DeserializeObject<ApiCevap>(content);
+
+            return new ApiCevapData<object?>(cevap);
+
+        }
+
+        public static async Task<ApiCevapData<List<Urun>>> UrunleriGetir()
+        {
+            HttpResponseMessage resp = await HttpUtils.GetAsync("UrunleriGetir");
+            string content = await resp.Content.ReadAsStringAsync();
+
+            ApiCevap cevap = JsonConvert.DeserializeObject<ApiCevap>(content);
+
+            return new ApiCevapData<List<Urun>>(cevap);
+
+        }
     }
 }

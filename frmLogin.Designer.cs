@@ -60,6 +60,7 @@
             txtKullaniciAd.Name = "txtKullaniciAd";
             txtKullaniciAd.Size = new Size(260, 27);
             txtKullaniciAd.TabIndex = 1;
+            txtKullaniciAd.Text = "admin";
             // 
             // label2
             // 
@@ -77,6 +78,7 @@
             txtParola.PasswordChar = '●';
             txtParola.Size = new Size(260, 27);
             txtParola.TabIndex = 2;
+            txtParola.Text = "1234";
             // 
             // panel1
             // 

@@ -19,8 +19,11 @@ namespace StokTakipApp.Api
             HataVarMi = !cevap.BasariliMi;
             HataMesaji = cevap.HataMesaji;
 
-            if(cevap.BasariliMi)
+            if (cevap.BasariliMi)
+            {
+             if(cevap.Data!=null)
                 data = JsonConvert.DeserializeObject<T>(cevap.Data.ToString());
+            }
         }
 
         public T GetData()
