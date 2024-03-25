@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace StokTakipApp.Pages
 {
-    public partial class ucKullanicilar : UserControl
+    public partial class ucKullanicilar : ucTemelSayfa
     {
         public ucKullanicilar()
         {

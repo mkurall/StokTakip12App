@@ -80,5 +80,17 @@ namespace StokTakipApp.Api
             return new ApiCevapData<List<Urun>>(cevap);
 
         }
+
+        public static async Task<ApiCevapData<Urun>> UrunEkle(string kod, string ad, int kategoriId, int birimId, string aciklama)
+        {
+            HttpResponseMessage resp = await HttpUtils.PostAsync("UrunEkle", $"{{'kod':'{kod}','ad':'{ad}','kategoriId':'{kategoriId}','birimId':'{birimId}','aciklama':'{aciklama}'}}");
+            string content = await resp.Content.ReadAsStringAsync();
+
+            ApiCevap cevap = JsonConvert.DeserializeObject<ApiCevap>(content);
+
+            return new ApiCevapData<Urun>(cevap);
+
+        }
+
     }
 }

@@ -12,8 +12,10 @@ using System.Windows.Forms;
 
 namespace StokTakipApp.Pages
 {
-    public partial class ucUrunler : UserControl
+    public partial class ucUrunler : ucTemelSayfa
     {
+        BindingList<Urun> bindList = null;
+
         public ucUrunler()
         {
             InitializeComponent();
@@ -27,10 +29,11 @@ namespace StokTakipApp.Pages
         async void UrunleriYukle()
         {
             var cevap = await ApiV1.UrunleriGetir();
-            
-            if(!cevap.HataVarMi)
+
+            if (!cevap.HataVarMi)
             {
-                dataGridView1.DataSource = cevap.GetData();
+                bindList = new BindingList<Urun>(cevap.GetData());
+                dataGridView1.DataSource = bindList;
             }
             else
             {
@@ -45,7 +48,7 @@ namespace StokTakipApp.Pages
 
             if (!cevap.HataVarMi)
             {
-               colKategori.DataSource = cevap.GetData();
+                colKategori.DataSource = cevap.GetData();
                 colKategori.DisplayMember = "KategoriAdi";
                 colKategori.ValueMember = "KategaoriId";
             }
@@ -62,5 +65,27 @@ namespace StokTakipApp.Pages
             colBirim.ValueMember = "Id";
         }
 
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        public async override void Kaydet()
+        {
+            foreach (var item in bindList)
+            {
+                if(item.UrunId == 0)
+                {
+                    var cevap = await ApiV1.UrunEkle(item.UrunKodu, item.UrunAd, item.KategoriId, item.BirimId, item.UrunAciklama);
+
+                    if(!cevap.HataVarMi)
+                    {
+                        Urun urun = cevap.GetData();
+                        item.UrunId = urun.UrunId;
+                    }
+
+                }
+            }
+        }
     }
 }

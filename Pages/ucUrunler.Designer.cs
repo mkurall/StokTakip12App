@@ -30,7 +30,6 @@
         {
             label1 = new Label();
             dataGridView1 = new DataGridView();
-            panel1 = new Panel();
             colUrunKodu = new DataGridViewTextBoxColumn();
             colKategori = new DataGridViewComboBoxColumn();
             colUrunAd = new DataGridViewTextBoxColumn();
@@ -38,6 +37,7 @@
             colAciklama = new DataGridViewTextBoxColumn();
             colMinStok = new DataGridViewTextBoxColumn();
             colMaksStok = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -62,16 +62,7 @@
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(1179, 340);
             dataGridView1.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.RosyBrown;
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 340);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1179, 46);
-            panel1.TabIndex = 2;
+            dataGridView1.DataError += dataGridView1_DataError;
             // 
             // colUrunKodu
             // 
@@ -128,6 +119,16 @@
             colMaksStok.MinimumWidth = 6;
             colMaksStok.Name = "colMaksStok";
             colMaksStok.Width = 125;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.RosyBrown;
+            panel1.Controls.Add(label1);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(0, 340);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1179, 46);
+            panel1.TabIndex = 2;
             // 
             // ucUrunler
             // 

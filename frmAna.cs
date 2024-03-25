@@ -37,7 +37,7 @@ namespace StokTakipApp
                 return new ucKullanicilar();
             else if (node.Name == "nodeKategoriler")
                 return new ucKategoriler();
-            else if(node.Name == "nodeUrunListesi")
+            else if (node.Name == "nodeUrunListesi")
                 return new ucUrunler();
 
             return null;
@@ -66,6 +66,19 @@ namespace StokTakipApp
         {
             //MessageBox.Show(tabIndex + ".tabPage kapatılacak!");
             tabControlEx1.TabPages.RemoveAt(tabIndex);
+        }
+
+        private void tsbKaydet_Click(object sender, EventArgs e)
+        {
+            foreach(TabPage page in tabControlEx1.TabPages)
+            {
+                if(page.Controls.Count <= 0) continue;
+
+                ucTemelSayfa sayfa = page.Controls[0] as ucTemelSayfa;
+
+                if(sayfa != null)
+                    sayfa.Kaydet();
+             }
         }
     }
 }

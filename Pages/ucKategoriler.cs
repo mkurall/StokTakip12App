@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace StokTakipApp.Pages
 {
-    public partial class ucKategoriler : UserControl
+    public partial class ucKategoriler : ucTemelSayfa
     {
         BindingList<Kategori> liste = new BindingList<Kategori>();
         public ucKategoriler()

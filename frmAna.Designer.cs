@@ -41,7 +41,7 @@
             dosyaToolStripMenuItem = new ToolStripMenuItem();
             hakkındaToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
-            toolStripButton1 = new ToolStripButton();
+            tsbKaydet = new ToolStripButton();
             treeView1 = new TreeView();
             splitContainer1 = new SplitContainer();
             label1 = new Label();
@@ -82,21 +82,22 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(32, 32);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { tsbKaydet });
             toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1099, 39);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // tsbKaydet
             // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(36, 36);
-            toolStripButton1.Text = "toolStripButton1";
+            tsbKaydet.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            tsbKaydet.Image = (Image)resources.GetObject("tsbKaydet.Image");
+            tsbKaydet.ImageTransparentColor = Color.Magenta;
+            tsbKaydet.Name = "tsbKaydet";
+            tsbKaydet.Size = new Size(36, 36);
+            tsbKaydet.Text = "toolStripButton1";
+            tsbKaydet.Click += tsbKaydet_Click;
             // 
             // treeView1
             // 
@@ -219,7 +220,7 @@
         private ToolStripMenuItem dosyaToolStripMenuItem;
         private ToolStripMenuItem hakkındaToolStripMenuItem;
         private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButton1;
+        private ToolStripButton tsbKaydet;
         private TreeView treeView1;
         private SplitContainer splitContainer1;
         private Label label1;
